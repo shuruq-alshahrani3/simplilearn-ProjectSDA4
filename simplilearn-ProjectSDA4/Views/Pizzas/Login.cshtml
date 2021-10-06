@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+
+}
+
+<div class="row">
+    <form>
+
+        <div class="col-lg-4">
+            <h1>Admin Login</h1>
+            <div class="jumbotron" style="width:400px;">
+
+                <input id="username" type="text" placeholder="Name"><br>
+                <input id="password" type="password" placeholder="Password"><br><br />
+
+                <button class="btn btn-primary" id="loginCheckk" asp-controller="Pizzas" asp-action="Index">Login</button>
+                <button class="btn btn-warning" type="reset">Reset</button>
+                <br><br>
+                <span><b>Note : </b>For this demo use<br /><b>User Name : Admin <br />Password : 000</b></span>
+                <hr>
+
+            </div>
+        </div>
+    </form>
+</div>

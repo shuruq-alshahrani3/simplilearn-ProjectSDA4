@@ -1,0 +1,34 @@
+﻿@model List<Pizza>;
+
+@{ ViewData["Title"] = "Store Pizzas"; }
+
+<div class="row">
+    <div class="col-md-offset-1 ">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pizza Picture</th>
+                    <th>Pizza Name </th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Item in Model)
+                {
+    <tr>
+        <td class="align-middle"><img class="img-rounded" src="~/images/Pizzas/@(Item.ProfilePictureURL).jpg" alt="@Item.NamePizza" style="max-width:150px" /></td>
+        <td>@Html.DisplayFor(modelItem => Item.NamePizza)</td>
+        <td>@Html.DisplayFor(modelItem => Item.Quantity)</td>
+        <td>@Html.DisplayFor(modelItem => Item.Price)</td>
+
+        <td>
+            <a class="btn alert-success" asp-action="Order" asp-route-id="@Item.PizzaId">Buy +</a>
+
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>

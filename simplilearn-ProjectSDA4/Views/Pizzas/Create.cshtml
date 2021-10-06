@@ -1,0 +1,45 @@
+﻿@model Pizza
+
+@{ ViewData["Title"] = "Admin | Create"; }
+
+<h2>Create New Item</h2>
+<h4>Add a New Pizzas Info</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProfilePictureURL" class="control-label">Pizza Picture</label><br /><span style="color:darkgray;">!! Alert: Write here the name of your Pic and save it at image/Pizzas file, with jpg extension</span>
+                <input asp-for="ProfilePictureURL" class="form-control" />
+                <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamePizza" class="control-label"> Pizza Name</label>
+                <input asp-for="NamePizza" class="form-control" />
+                <span asp-validation-for="NamePizza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Quantity</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-info"> < Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

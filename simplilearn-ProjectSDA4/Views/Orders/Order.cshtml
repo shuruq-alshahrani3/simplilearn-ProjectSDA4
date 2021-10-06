@@ -1,0 +1,57 @@
+﻿@model Pizza
+
+
+@{ ViewData["Title"] = "Create Order";
+                var item = Model; }
+
+<h2>Create Order</h2>
+<h4>Write your Info with selected Pizza</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4>Selected Pizza</h4>
+        <form asp-action="Order">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PizzaId" />
+            <div class="form-group">
+                <img class="img-rounded" src="~/images/Pizzas/@(item.ProfilePictureURL).jpg" alt="@item.NamePizza" style="max-width:150px" /><br /><br />
+                <input asp-for="NamePizza" class="form-control" disabled="disabled" />
+                <span asp-validation-for="NamePizza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Quantity" class="form-control" disabled="disabled" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Price" class="form-control" disabled="disabled" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <!---->
+            <hr /><h2>Cutomer Info</h2>
+            <div class="form-group">
+                <label class="control-label">Customer Name</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Adress</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <!---->
+        </form>
+
+        <div class="form-group">
+
+            <a asp-action="OrderSuccess" class="btn btn-success" />Order</a>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-info"> < Back to Market</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

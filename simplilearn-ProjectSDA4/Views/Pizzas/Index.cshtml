@@ -1,0 +1,37 @@
+﻿@model List<Pizza>;
+
+@{ ViewData["Title"] = "Admin | Items"; }
+
+<div class="row">
+    <div class="col-md-offset-1 ">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pizza Picture</th>
+                    <th>Quantity</th>
+                    <th>Pizza Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Item in Model)
+                {
+    <tr>
+        <td class="align-middle"><img class="img-rounded" src="~/images/Pizzas/@(Item.ProfilePictureURL).jpg" alt="@Item.NamePizza" style="max-width:150px" /></td>
+        <td>@Html.DisplayFor(modelItem => Item.NamePizza)</td>
+        <td>@Html.DisplayFor(modelItem => Item.Quantity)</td>
+        <td>@Html.DisplayFor(modelItem => Item.Price)</td>
+
+        <td>
+
+            <a class="btn alert-warning" asp-action="Edit" asp-route-id="@Item.PizzaId">Edit</a> |
+            <a class="btn alert-danger" asp-action="Delete" asp-route-id="@Item.PizzaId">Delete</a>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+        <hr style="width:80%;" />
+        <a class="btn alert-info" asp-action="Create">ADD New Pizza +</a>
+    </div>
+</div>
