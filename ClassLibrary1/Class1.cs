@@ -17,7 +17,7 @@ namespace ClassLibrary1
             public void AddItem()
             {
                 _drive.Manage().Window.Maximize();
-                _drive.Navigate().GoToUrl("https://localhost:44381/Orders");
+                _drive.Navigate().GoToUrl("https://localhost:44381/");
 
             }
         }
